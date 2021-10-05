@@ -1,0 +1,3 @@
+LiveL     isa  Lattice
+LiveL     =   LiveL (Set(Var))
+LiveL.po  =   #SetSupset

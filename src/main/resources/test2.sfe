@@ -1,0 +1,22 @@
+SignL     isa  Lattice
+SignL     =   Top | Bot | Neg | Pos | Zero | NegZero | PosZero
+SignL.po {
+NegZero Neg   = True
+  NegZero Zero  = True
+  PosZero Pos   = True
+  PosZero Zero  = True
+}
+
+SignML    isa  Lattice
+SignML    =   SignML (Map (NumVar, SignL))
+
+SignML     isa  Lattice
+SignML     =   SignML (Map (NumVar, SignL))
+SignML.top =   SignML (Map ([Tuple(var, SignL.top) | var <- allNumVar]))
+SignML.bot =   SignML (Map ([Tuple(var, SignL.bot) | var <- allNumVar]))
+
+SignML.po {
+    (SignML x) (SignML y) = all([SignL.po(val1, val2)
+    | (v1, val1) <- x, (v2, val2) <- y, v1 == v2])
+
+}

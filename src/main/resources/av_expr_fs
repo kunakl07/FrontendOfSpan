@@ -1,0 +1,15 @@
+%Full spec
+AvL     isa Lattice
+AvL     = AvL (SetOf(Expr))
+
+AvL.top = AvL(allExpr)
+AvL.bot = AvL(EmptySet)
+
+Avl.po {
+    x       y       => y
+    (Avl x) (Avl y) = Set.subset(x, y)
+
+}
+Avl.meet{
+     (Avl x) (Avl y) = Set.intersect(x, y)
+}

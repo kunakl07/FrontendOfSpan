@@ -1,0 +1,7 @@
+% lattice -- short specification
+AvL       isa Lattice
+AvL       = AvL (Set Expr)
+AvL.po    = #SetSubset        % AvL.meet can be derived from AvL.po in this case
+            % A string prefixed with `#` behaves like a macro,
+            % with predefined meaning,
+            % it helps expand the short specification to a full specification.

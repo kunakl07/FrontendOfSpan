@@ -1,0 +1,24 @@
+% Short spec for AVAILABLE EXPRESSION
+AvL       isa Lattice
+AvL       = AvL (Set(Expr))
+AvL.po    = #SetSubset
+
+AvL.t {
+
+  dfvin, isa {
+    kill = {e  |  e <- allExpr,      v1 in opds(e)}
+    gen  = {e1 |                  not v1 in opds(e1)}
+    Set.union(Set.difference(dfvin, kill), gen)
+  }
+
+  dfvin, isa {
+    kill = {e | e <- allExpr, v1 in opds(e)}
+    Set.difference(dfvin, kill)
+  }
+
+  dfvin, isa {
+    kill = {e | e <- allExpr, v1 in opds(e)}
+    Set.difference(dfvin, kill)
+  }
+
+}
